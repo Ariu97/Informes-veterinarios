@@ -1,0 +1,60 @@
+AUTOMATIZACION_DE_INFORMES_VETERINARIOS - INSTRUCCIONES
+
+Resumen:
+Este proyecto genera informes veterinarios en Word a partir de datos en Excel y fotografías organizadas en carpetas.
+
+Requisitos (Windows 10/11):
+- Python 3.8+ instalado y accesible desde la variable PATH.
+- Microsoft Excel y Word instalados (solo para abrir/editar los archivos resultantes).
+- Instalar las dependencias: abra CMD y ejecute:
+    pip install -r requirements.txt
+
+Archivos principales del proyecto:
+- generar_informe.py    -> Script principal que genera el informe.
+- setup_project.py      -> Crea la estructura de carpetas, la plantilla de ejemplo, el Excel plantilla y imágenes de prueba.
+- Datos_informe_veterinario.xlsx -> Excel plantilla (si no existe, use setup_project.py para crearlo).
+- Plantilla_informe_veterinario.docx -> Plantilla Word de ejemplo (puede reemplazarla por su plantilla institucional).
+- Generar_informe.bat   -> Doble clic en Windows para ejecutar el generador.
+- Fotografias/          -> Carpeta con subcarpetas Examen_externo, Examen_interno, Examen_radiografico.
+- Informes_generados/   -> Carpeta donde se guardan los informes.
+- registro_generacion.txt -> Archivo que registra cada ejecución (se crea/actualiza automáticamente).
+
+Cómo preparar un caso:
+1. Abra Datos_informe_veterinario.xlsx.
+2. Rellene los campos en la columna B. Los campos obligatorios para generar el nombre del archivo:
+   - "Número de historia"
+   - "Especie"
+   Compruebe que están completos y sin caracteres no válidos.
+3. Guarde y cierre Excel.
+4. Coloque las fotografías en las carpetas:
+   - Fotografias\\Examen_externo\\
+   - Fotografias\\Examen_interno\\
+   - Fotografias\\Examen_radiografico\\
+   Pueden tener nombres libres y extensiones jpg/jpeg/png/tif/tiff/bmp/webp.
+5. Haga doble clic en Generar_informe.bat o ejecute:
+   python generar_informe.py
+   desde la carpeta del proyecto.
+
+Qué produce:
+- Un documento Word llamado exactamente:
+  Informe veterinario [Número de historia] [Especie].docx
+  guardado en Informes_generados/
+- registro_generacion.txt se actualizará con detalles de la ejecución.
+
+Notas técnicas y limitaciones:
+- El script intenta respetar la plantilla si Plantilla_informe_veterinario.docx existe.
+- Se añaden saltos de página reales antes de las secciones: EXAMEN EXTERNO, EXAMEN INTERNO, EXAMEN RADIOGRÁFICO, ANÁLISIS TOXICOLÓGICO, DIAGNÓSTICO Y CONCLUSIONES, y antes de cada grupo del anexo fotográfico.
+- El anexo fotográfico crea una cuadrícula 2x2 por página para las imágenes, con pies de foto editables: "Imagen N. ___________________".
+- El script crea transformaciones en memoria (no sobrescribe las imágenes originales).
+- Si una imagen está dañada o no puede procesarse se registrará y se omitirá; el informe seguirá generándose.
+- Si el archivo de salida ya existe, no se sobrescribe: se crea " (2)", " (3)", etc.
+- Si Excel está abierto y bloquea la lectura, el script lo informará.
+
+Pruebas:
+- Para crear ejemplo de datos y fotos, ejecute:
+    python setup_project.py
+  Esto crea el Excel plantilla, la plantilla Word de ejemplo y varias imágenes de prueba en Fotografias/.
+  Luego edite el Excel (ponga Número de historia y Especie) y ejecute generar_informe.py.
+
+Soporte:
+Si algo no funciona, copie el contenido de registro_generacion.txt y proporciónamelo para ayudarle.

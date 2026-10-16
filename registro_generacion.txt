@@ -1,0 +1,49 @@
+Registro de ejecuciones del generador de informes veterinarios.
+Formato: fecha, número historia, especie, archivo generado, imágenes encontradas, imágenes insertadas, omitidos, errores.=== Ejecución: 2026-10-16 19:32:34 ===
+Número de historia: 262155
+Especie: None
+Archivo generado: None
+Imágenes encontradas por carpeta:
+Imágenes insertadas: 0
+Errores:
+  - Número de historia y/o Especie vacíos. Complete esos campos en el Excel antes de generar el informe.
+
+=== Ejecución: 2026-10-16 19:32:45 ===
+Número de historia: 262155
+Especie: None
+Archivo generado: None
+Imágenes encontradas por carpeta:
+Imágenes insertadas: 0
+Errores:
+  - Número de historia y/o Especie vacíos. Complete esos campos en el Excel antes de generar el informe.
+
+=== Ejecución: 2026-10-16 19:33:14 ===
+Número de historia: 262155
+Especie: Circus pygargus
+Archivo generado: Informe veterinario 262155 Circus pygargus.docx
+Imágenes encontradas por carpeta:
+  - Examen_externo: 6
+  - Examen_interno: 6
+  - Examen_radiografico: 6
+Imágenes insertadas: 18
+
+=== Ejecución: 2026-10-16 19:33:20 ===
+Número de historia: 262155
+Especie: Circus pygargus
+Archivo generado: Informe veterinario 262155 Circus pygargus (2).docx
+Imágenes encontradas por carpeta:
+  - Examen_externo: 6
+  - Examen_interno: 6
+  - Examen_radiografico: 6
+Imágenes insertadas: 18
+
+=== Ejecución: 2026-10-16 19:38:34 ===
+Número de historia: 262155
+Especie: Circus pygargus
+Archivo generado: Informe veterinario 262155 Circus pygargus (3).docx
+Imágenes encontradas por carpeta:
+  - Examen_externo: 6
+  - Examen_interno: 6
+  - Examen_radiografico: 6
+Imágenes insertadas: 18
+
